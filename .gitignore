@@ -1,0 +1,7 @@
+mobile/Tweetanium/build
+ipad/Tweetanium/build
+mobile/Tweetanium/Resources/tweetanium/config/config.js
+desktop/Tweetanium/Resources/javascript/tweetanium.config.js
+desktop/Tweetanium/Resources/javascript/*.min.js
+desktop/Tweetanium/Resources/stylesheets/*.min.css
+desktop/Tweetanium/dist/osx/*

@@ -1,0 +1,29 @@
+<!--
+Appcelerator Titanium Platform
+Copyright (c) 2009-2011 by Appcelerator, Inc. All Rights Reserved.
+Licensed under the terms of the Apache Public License
+Please see the LICENSE included with this distribution for details.
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="stylesheets/login.min.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+    <div id="login">
+        <div id="login-wrapper">
+            <p>Use your Twitter credentials to log in:</p>
+            <form id="login_form" action="index.html">
+                <label class="error">Authentication error</label>
+    		    <input class="shake-on-error" type="text" name="username" value="" id="username" />
+        		<input class="shake-on-error" type="password" name="password" value="" id="password" />
+        		<input type="image" src="images/login_button.png" id="auth" name="auth" />
+    		</form>
+    		<img id="login_activity_indicator" style="display: none;" src="images/ajax-loader.gif" alt="loading" />
+        </div>
+	</div>
+	<script type="text/javascript" src="javascript/spazcore/spazcore-titanium.min.js"></script>
+	<script type="text/javascript" src="javascript/login.min.js"></script>
+</body>
+</html>

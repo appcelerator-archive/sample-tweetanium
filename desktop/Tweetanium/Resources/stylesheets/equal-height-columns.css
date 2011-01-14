@@ -1,0 +1,60 @@
+/**
+ * Appcelerator Titanium Platform
+ * Copyright (c) 2009-2011 by Appcelerator, Inc. All Rights Reserved.
+ * Licensed under the terms of the Apache Public License
+ * Please see the LICENSE included with this distribution for details.
+**/
+
+/* The 4 column equal height layout is a heavily modified version of 
+    http://matthewjamestaylor.com/blog/equal-height-columns-4-column.htm */
+#wrapper {
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+#container4 {
+	clear:left;
+	float:left;
+	width:1285px;
+	overflow: hidden;
+	background-color: #c9cacd;
+	height: 437px; /* dynamically updated on window resize */
+	position: relative;
+	left: -1px;
+	margin: auto;
+}
+#container3 {
+	clear:left;
+}
+#container2 {
+	clear:left;
+}
+.container-common {
+    float:left;
+	width:100%;
+	position:relative;
+	right:25%;
+}
+.tweet-column {
+    overflow: auto;
+    word-wrap: break-word;
+    height: 437px; /* dynamically updated on window resize */
+    float:left;
+	width:320px;
+	position:relative;
+	left:75.1%;
+	border-left: thin black solid;
+}
+/* Slight height adjustments to account for toolbar differences in other platforms */
+#container4.linux {
+    height: 408px; /* dynamically updated on window resize */
+}
+.tweet-column.linux {
+    height: 408px; /* dynamically updated on window resize */
+}
+#container4.win {
+    height: 420px; /* dynamically updated on window resize */
+}
+.tweet-column.win {
+    height: 420px; /* dynamically updated on window resize */
+}

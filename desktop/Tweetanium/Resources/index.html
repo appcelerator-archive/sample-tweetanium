@@ -1,0 +1,169 @@
+<!--
+Appcelerator Titanium Platform
+Copyright (c) 2009-2011 by Appcelerator, Inc. All Rights Reserved.
+Licensed under the terms of the Apache Public License
+Please see the LICENSE included with this distribution for details.
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="javascript/jquery/jquery-ui-custom/css/custom-theme/jquery-ui-1.8.7.custom.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/tweetanium.min.css" type="text/css" charset="utf-8" />
+</head>
+<body>
+	<div id="header">
+        <div id="tweetbox">
+            <img class="tweet-profile-pic" src="" alt="profile pic" />
+            <img class="tweet-input-arrow" src="images/tweet_bubble_arrow.png" alt="arrow" />
+            <div id="tweetbox-input-container">
+                <textarea id="tweet-input" class="tweet-input-textarea"></textarea>
+                <div class="tweet-char-count">140</div>
+            </div>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="toolbar">
+            <div id="refresh-icons" class="tweet-column-icons">
+                <img id="inactive-refresh" style="display: none;" src="images/toolbar/refresh.png" alt="refresh icon" />
+                <img id="active-refresh" src="images/ajax-loader.gif" alt="activity indicator" />
+                <p id="rate-limit"></p>
+            </div>
+            <div id="home-icons" class="tweet-column-icons">
+                <img src="images/toolbar/home.png" alt="home icon" />
+                <p class="tweet-column-title">Timeline&nbsp;<span class="tweet-column-count">0</span><p>
+            </div>
+			<div id="replies-icons" class="tweet-column-icons">
+			    <img src="images/toolbar/replies.png" alt="replies icon" />
+			    <p class="tweet-column-title">Replies&nbsp;<span class="tweet-column-count">0</span><p>
+			</div>
+			<div id="dms-icons" class="tweet-column-icons">
+			    <img src="images/toolbar/dm.png" alt="direct message icon" />
+			    <p class="tweet-column-title">Direct Messages&nbsp;<span class="tweet-column-count">0</span><p>
+			</div>
+			<div id="search-results-icons" class="tweet-column-icons">
+			    <img src="images/toolbar/search.png" alt="search icon" />
+			    <p class="tweet-column-title">Searches&nbsp;<span class="tweet-column-count">0</span><p>
+			</div>
+        </div>
+        <div id="container4">
+        	<div id="container3" class="container-common">
+        		<div id="container2" class="container-common">
+        			<div id="container1" class="container-common">
+        				<div id="home" class="tweet-column"> 
+        				    <!-- Default tweet row -->
+        				    <div class="tweet default">
+                                <div class="tweet-profile-image"></div>
+                                <div class="tweet-header">
+                                    <span class="tweet-author"></span>
+                                    <span class="tweet-date"></span>
+                                </div>
+                                <div class="tweet-body">No results</div>
+                           </div>
+                            <!-- End default tweet row -->
+        				    <div class="bottom-filler"></div>
+        				</div>
+        				<div id="replies" class="tweet-column">
+        				    <!-- Default tweet row -->
+        				    <div class="tweet default">
+                                <div class="tweet-profile-image"></div>
+                                <div class="tweet-header">
+                                    <span class="tweet-author"></span>
+                                    <span class="tweet-date"></span>
+                                </div>
+                                <div class="tweet-body">No results</div>
+                           </div>
+                            <!-- End default tweet row -->
+        				    <div class="bottom-filler"></div>
+        				</div>
+        				<div id="dms" class="tweet-column">
+        				    <!-- Default tweet row -->
+        				    <div class="tweet default">
+                                <div class="tweet-profile-image"></div>
+                                <div class="tweet-header">
+                                    <span class="tweet-author"></span>
+                                    <span class="tweet-date"></span>
+                                </div>
+                                <div class="tweet-body">No results</div>
+                           </div>
+                            <!-- End default tweet row -->
+        				    <div class="bottom-filler"></div>
+        				</div>
+        				<div id="search" class="tweet-column">
+        				    <div class="search-input-wrapper">
+        				        <input id="search_input" type="text" value="" />
+        				    </div>
+        				    <div id="search-results"></div>
+        				    <!-- Default tweet row -->
+        				    <div class="tweet default">
+                                <div class="tweet-profile-image"></div>
+                                <div class="tweet-header">
+                                    <span class="tweet-author"></span>
+                                    <span class="tweet-date"></span>
+                                </div>
+                                <div class="tweet-body">No results</div>
+                           </div>
+                            <!-- End default tweet row -->
+        				    <div class="bottom-filler"></div>
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    </div>
+    
+    <div id="column-scrollers" class="inactive">
+        <div class="left arrow"></div>
+        <div class="right arrow active"></div>
+    </div>
+    <div id="timeline_overlay_base">
+        <img class="overlay_close" src="images/overlay/timeline_overlay_close.png" alt="close" />
+        <div id="overlay_reply" class="reply timeline_overlay_base_option">
+            <p class="overlay_op">Reply</p>
+        </div>
+        <div id="overlay_retweet" class="retweet timeline_overlay_base_option">
+            <p class="overlay_op">Retweet</p>
+        </div>
+        <div id="overlay_dm" class="dm timeline_overlay_base_option">
+            <p class="overlay_op">DM</p>
+        </div>
+        <div id="ovelay_base_footer">
+            <img class="divider" src="images/overlay/horizontal_divider.png" alt="divider" />
+            <div id="follow" style="display: none;" class="overlay_base_button friendship"><p>Follow</p></div>
+            <div id="unfollow" style="display: none;" class="overlay_base_button friendship"><p>Unfollow</p></div>
+        </div>
+    </div>
+	
+	<div id="timeline_overlay">
+	    <img class="overlay_close" src="images/overlay/timeline_overlay_close.png" alt="close" />
+	    <div id="overlay_message">
+	        <p id="overlay_message_header"></p>
+	        <textarea id="overlay_tweet" class="tweet-input-textarea"></textarea>
+    	    <div id="overlay_toolbar">
+    	        <div id="overlay_submit">Submit</div>
+    	        <div class="tweet-char-count">140</div>
+    	    </div>
+	    </div>
+	</div>
+	<div css="dialog" id="about_appcelerator" title="About Appcelerator">
+	    <p>A platform and services company that is enabling Web developers to build intuitive, content-rich applications for Mobile, Tablet and Desktop platforms.</p>
+	</div>
+	<div css="dialog" id="about_titanium" title="About Titanium">
+	   <p>A free and open source application development platform, Titanium lets you create native mobile, tablet and desktop application experiences using existing web skills like Javascript, HTML, CSS, Python, Ruby, and PHP. Learn More.</p>
+	</div>
+	<div id="footer">
+	    <div class="footer-left">
+            <a id="logout" href="#">Logout</a>
+        </div>
+        <div class="footer-right">
+            <p class="footer-item">About:&nbsp;</p>
+            <img class="footer-divider" src="images/footer/footer_item_divider.png" alt="divider" />
+            <p class="appcelerator footer-item about">Appcelerator&nbsp;</p>
+            <img class="footer-divider" src="images/footer/footer_item_divider.png" alt="divider" />
+            <p class="titanium footer-item about">Titanium</p>
+        </div>
+    </div>
+	<script type="text/javascript" src="javascript/spazcore/spazcore-titanium.min.js"></script>
+	<script type="text/javascript" src="javascript/index.min.js"></script>
+</body>
+</html>

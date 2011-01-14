@@ -1,0 +1,3 @@
+Version 2.0 (11/14/2010):
+* Initial release (1.0 was a totally different app built on an earlier version of the Desktop SDK).
+* Meant to be a functional example application, 80% rule; xAuth + can tweet, reply, dm, search, etc.

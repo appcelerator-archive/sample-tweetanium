@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="app_name">Tweetanium</string>
+	<string name="username">Username</string>
+	<string name="password">Password</string>
+	<string name="timeline">Timeline</string>
+	<string name="retweeted_by">retweeted by %s</string>
+	<string name="direct_messages">Direct Messages</string>
+	<string name="mentions">Mentions</string>
+	<string name="about">About</string>
+	<string name="about_version">Tweetanium version</string>
+	<string name="about_description_header">Appcelerator Titanium makes cross-platform native application development easy.</string>
+	<string name="about_description_body">A free and open source application development platform, Titanium lets you create native mobile, tablet and desktop application experiences using existing web skills like Javascript, HTML, CSS, Python, Ruby, and PHP.</string>
+	<string name="account">Account</string>
+	<string name="add_account">Add Account</string>
+	<string name="loading">One Moment Please...</string>
+	<string name="just_now">just now</string>
+	<string name="ago">ago</string>
+	
+	<string name="twitter_error">Twitter Error</string>
+	<string name="twitter_error_general">Twitter is currently experiencing technical difficulties.  Please retry your request later.</string>
+	<string name="twitter_error_request">There were problems contacting Twitter over the internet.  Please check your network connection and try again.</string>
+	<string name="twitter_error_over_capacity">Twitter is currently over capacity.  Please retry your request later.</string>
+</resources>

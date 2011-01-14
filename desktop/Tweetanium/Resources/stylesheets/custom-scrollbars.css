@@ -1,0 +1,102 @@
+/**
+ * Appcelerator Titanium Platform
+ * Copyright (c) 2009-2011 by Appcelerator, Inc. All Rights Reserved.
+ * Licensed under the terms of the Apache Public License
+ * Please see the LICENSE included with this distribution for details.
+**/
+
+/* 
+This is an expanded version of the custom bespon style 
+webkit scrollbar.  Reference the following post:
+http://almaer.com/blog/creating-custom-scrollbars-with-css-how-css-isnt-great-for-every-task
+*/
+
+/* General Scrollbar Settings */
+
+/* Turn on a 16x16 scrollbar */
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+/* Turn on single button up on top, and down on bottom */
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: block;
+}
+
+/* Vertical Scrollbar Settings */
+
+/* Turn off the down area up on top, and up area on bottom */
+::-webkit-scrollbar-button:vertical:start:increment,
+::-webkit-scrollbar-button:vertical:end:decrement {
+    display: none;
+}
+
+/* Place The scroll down button at the bottom */
+::-webkit-scrollbar-button:vertical:end:increment {
+    background-image: url(../images/scrollbars/scroll_cntrl_dwn.png);
+}
+
+/* Place The scroll up button at the up */
+::-webkit-scrollbar-button:vertical:start:decrement {
+    background-image: url(../images/scrollbars/scroll_cntrl_up.png);
+}
+
+/* Top area above thumb and below up button */
+::-webkit-scrollbar-track-piece:vertical:start {
+    background-image: url(../images/scrollbars/scroll_gutter_top.png), url(../images/scrollbars/scroll_gutter_mid.png);
+    background-repeat: no-repeat, repeat-y;
+}
+
+/* Bottom area below thumb and down button */
+::-webkit-scrollbar-track-piece:vertical:end {
+    background-image: url(../images/scrollbars/scroll_gutter_btm.png), url(../images/scrollbars/scroll_gutter_mid.png);
+    background-repeat: no-repeat, repeat-y;
+    background-position: bottom left, 0 0;
+}
+
+/* The vertical thumb */
+::-webkit-scrollbar-thumb:vertical {
+    height: 56px;
+    -webkit-border-image: url(../images/scrollbars/scroll_thumb.png) 8 0 8 0 stretch stretch;
+    border-width: 8 0 8 0;
+}
+
+/* Horizontal Scrollbar Settings */
+
+/* Turn off the down area up on top, and up area on bottom */
+::-webkit-scrollbar-button:horizontal:start:increment,
+::-webkit-scrollbar-button:horizontal:end:decrement {
+    display: none;
+}
+
+/* Place The scroll down button at the right */
+::-webkit-scrollbar-button:horizontal:end:increment {
+    background-image: url(../images/scrollbars/scroll_cntrl_rgt.png);
+}
+
+/* Place The scroll up button at the left */
+::-webkit-scrollbar-button:horizontal:start:decrement {
+    background-image: url(../images/scrollbars/scroll_cntrl_lft.png);
+}
+
+/* Top area above thumb and below up button */
+::-webkit-scrollbar-track-piece:horizontal:start {
+    background-image: url(../images/scrollbars/scroll_gutter_lft.png), url(../images/scrollbars/scroll_gutter_mid_horizontal.png);
+    background-repeat: no-repeat, repeat-x;
+}
+
+/* Bottom area below thumb and down button */
+::-webkit-scrollbar-track-piece:horizontal:end {
+    background-image: url(../images/scrollbars/scroll_gutter_rgt.png), url(../images/scrollbars/scroll_gutter_mid_horizontal.png);
+    background-repeat: no-repeat, repeat-x;
+    background-position: bottom right, 0 0;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    width: 56px;
+    -webkit-border-image: url(../images/scrollbars/scroll_thumb_horizontal.png) 0 8 0 8 stretch stretch;
+    border-width: 0 8 0 8;
+}
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="app_name">Tweetanium</string>
+	<string name="username">Nombre de usuario</string>
+	<string name="password">Contraseña</string>
+	<string name="timeline">Cronología</string>
+	<string name="retweeted_by">retweeted sobre %s</string>
+	<string name="direct_messages">Mensajes directos</string>
+	<string name="mentions">Menciones</string>
+	<string name="about">Acerca</string>
+	<string name="about_version">Tweetanium version</string>
+	<string name="about_description_header">Appcelerator Titanium makes cross-platform native application development easy.</string>
+	<string name="about_description_body">A free and open source application development platform, Titanium lets you create native mobile, tablet and desktop application experiences using existing web skills like Javascript, HTML, CSS, Python, Ruby, and PHP.</string>
+	<string name="account">Cuenta</string>
+	<string name="account_following">Following</string>
+	<string name="account_followers">Followers</string>
+	<string name="account_tweets">Tweets</string>
+</resources>

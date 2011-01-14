@@ -1,0 +1,70 @@
+/**
+ * Appcelerator Titanium Platform
+ * Copyright (c) 2009-2011 by Appcelerator, Inc. All Rights Reserved.
+ * Licensed under the terms of the Apache Public License
+ * Please see the LICENSE included with this distribution for details.
+**/
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #505050;
+	font-family: 'Arvo', 'Helvetica Neue', arial, sans-serif;
+}
+
+#login {
+    background-image: url('../images/tweetanium_logo_large.png');
+    background-attachment:fixed;
+    background-position: center 10%;
+    background-repeat: no-repeat;
+    width: 380px;
+    height: 500px;
+}
+
+#login-wrapper {
+    position: absolute;
+    top: 250px;
+    left: 15px;
+    margin: auto;
+    width: 350px;
+}
+
+#login-wrapper p {
+    color: white;
+    font-size: 18px;
+    padding-top: 15px;
+}
+
+#login_form {
+    margin-top: -10px;
+}
+
+#login_form input[type="text"],
+#login_form input[type="password"] {
+    display: block;
+    width: 350px;
+    height: 35px;
+    -webkit-border-radius: 5px;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+#login_form input[type="image"]{
+    position: relative;
+    top: 10px;
+    left: 125px;
+}
+
+#login_form .error {
+    color: #ffffcc;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 13px;
+    visibility: hidden;
+}
+
+#login_activity_indicator {
+    position: relative;
+    top: -27px;
+    left: 193px;
+}
