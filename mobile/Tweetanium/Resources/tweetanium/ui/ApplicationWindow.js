@@ -10,7 +10,10 @@
 	
 	//create the main application window
 	tt.ui.createApplicationWindow = function(_args) {
-		var win = Ti.UI.createWindow(tt.combine($$.Window,{exitOnClose:true})),
+		var win = Ti.UI.createWindow(tt.combine($$.Window,{
+			exitOnClose:true,
+			orientationModes:[Ti.UI.PORTRAIT]
+		})),
 		headerView = Ti.UI.createView(tt.combine($$.headerView,{top:0})),
 		tabHeight = 60,
 		tabWidth = platformWidth/5,

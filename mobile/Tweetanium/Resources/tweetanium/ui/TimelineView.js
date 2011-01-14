@@ -9,12 +9,16 @@
 	//create the timeline view
 	tt.ui.createTimelineView = function(_args) {
 		var timelineView = Ti.UI.createView($$.stretch),
-		tableView = Titanium.UI.createTableView(tt.combine($$.TableView,{
+		tableView = Ti.UI.createTableView(tt.combine($$.TableView,{
 			top:$$.headerView.height,
 			minRowHeight:60
+		})),
+		newButton = Ti.UI.createButton(tt.combine($$.topRightButton,{
+			backgroundImage:'images/new.png'
 		}));
 		
 		timelineView.add(Ti.UI.createLabel(tt.combine($$.headerText,{text:L('timeline')})));
+		timelineView.add(newButton);
 		timelineView.add(tableView);
 		
 		//use the current account to grab and render a tweet timeline
@@ -38,6 +42,11 @@
 		
 		//When an account is selected (at launch or otherwise) grab the timeline
 		Ti.App.addEventListener('app:account.selected', refreshTimeline);
+		
+		newButton.addEventListener('click', function() {
+			var w = tt.ui.createComposeWindow();
+			w.open();
+		});
 		
 		return timelineView;
 	};

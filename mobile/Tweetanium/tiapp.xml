@@ -3,7 +3,7 @@
   <id>com.appcelerator.tweetanium.mobile</id>
   <name>Tweetanium</name>
   <version>1.0</version>
-  <publisher>kevin</publisher>
+  <publisher>Appcelerator Inc.</publisher>
   <url>http://www.appcelerator.com</url>
   <description>No description provided</description>
   <copyright>2010 by kevin</copyright>
@@ -20,6 +20,8 @@
   <iphone>
     <orientations device="iphone">
       <orientation>Ti.UI.PORTRAIT</orientation>
+      <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
+      <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
     </orientations>
     <orientations device="ipad">
       <orientation>Ti.UI.PORTRAIT</orientation>

@@ -26,16 +26,18 @@
 		loadingView.add(loader);
 		
 		Ti.App.addEventListener('app:show.loader', function() {
-			loadingView.visible = true;
-			var t2 = Ti.UI.create2DMatrix().scale(2.5),
-			a = Ti.UI.createAnimation();
-			
-			a.transform = t2;
-			a.duration = 1500;
-			a.autoreverse = true;
-			a.repeat = 90;
-			
-			loader.animate(a);
+			if (!loadingView.visible) {
+				loadingView.visible = true;
+				var t2 = Ti.UI.create2DMatrix().scale(2.5),
+				a = Ti.UI.createAnimation();
+
+				a.transform = t2;
+				a.duration = 1500;
+				a.autoreverse = true;
+				a.repeat = 90;
+
+				loader.animate(a);
+			}
 		});
 		
 		Ti.App.addEventListener('app:hide.loader', function() {

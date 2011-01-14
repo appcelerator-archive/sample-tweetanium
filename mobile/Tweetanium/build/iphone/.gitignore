@@ -1,0 +1,11 @@
+Classes
+tmp
+build
+headers
+lib
+Resources
+*.xcodeproj
+*.xcconfig
+main.m
+*.plist
+*.pch

@@ -265,6 +265,60 @@ Ti.include(
 			});
 		};
 		
+		//grab mentions for account
+		that.getMentions = function(/*Object*/ _args) {
+			that.request({
+				method:'GET',
+				action:'https://api.twitter.com/1/statuses/mentions.json',
+				parameters: {},
+				error: function(e,xhr) {
+					handleError(e,xhr,_args.error);
+				},
+				success: function(json,xhr) {
+					var results = [];
+					for (var i=0,l=json.length;i<l;i++) {
+						results.push(new tt.model.Tweet(json[i]));
+					}
+					if (_args.success) { _args.success(results); }
+				}
+			});
+		};
+		
+		//grab dms for account
+		that.getDirectMessages = function(/*Object*/ _args) {
+			that.request({
+				method:'GET',
+				action:'https://api.twitter.com/1/direct_messages.json',
+				parameters: {},
+				error: function(e,xhr) {
+					handleError(e,xhr,_args.error);
+				},
+				success: function(json,xhr) {
+					var results = [];
+					for (var i=0,l=json.length;i<l;i++) {
+						results.push(new tt.model.Tweet(json[i]));
+					}
+					if (_args.success) { _args.success(results); }
+				}
+			});
+		};
+		
+		that.updateStatus = function(/*Object*/ _args) {
+			that.request({
+				method:'POST',
+				action:'https://api.twitter.com/1/statuses/update.json',
+				parameters: {
+					status:_args.status
+				},
+				error: function(e,xhr) {
+					handleError(e,xhr,_args.error);
+				},
+				success: function(json,xhr) {
+					_args.success(json);
+				}
+			});
+		};
+		
 		return that;
 	};
 })();

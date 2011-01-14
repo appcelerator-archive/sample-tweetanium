@@ -16,9 +16,27 @@
 		}));
 		dmView.add(tableView);
 		
-		tableView.addEventListener('click', function(e) {
-			
+		//use the current account to grab and render DMs
+		function refreshDirectMessages() {
+			Ti.App.fireEvent('app:show.loader');
+			tt.app.currentAccount.getDirectMessages({
+				success: function(tweets) {
+					var tvData = [];
+					for (var i=0,l=tweets.length;i<l;i++) {
+						tvData.push(tt.ui.createTweetRow(tweets[i],true));
+					}
+					tableView.setData(tvData);
+					Ti.App.fireEvent('app:hide.loader');
+				}
+			});
+		}
+		
+		tableView.addEventListener('click', function(_e) {
+			Ti.App.fireEvent('app:show.drawer', {showing:'tweetDetails'});
 		});
+		
+		//When an account is selected (at launch or otherwise) grab the timeline
+		Ti.App.addEventListener('app:account.selected', refreshDirectMessages);
 		
 		return dmView;
 	};

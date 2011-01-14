@@ -65,11 +65,45 @@
 			borderStyle:Titanium.UI.INPUT_BORDERSTYLE_ROUNDED,
 			color:'#000000'
 		},
+		TextArea: {
+			borderRadius:10,
+			backgroundColor:'#efefef',
+			//gradient will only work on iOS
+			backgroundGradient:{
+				type:'linear',
+				colors:[
+					{color:'#efefef',position:0.0},
+					{color:'#cdcdcd',position:0.50},
+					{color:'#efefef',position:1.0}
+				]
+			}
+		},
 		
 		//we use these as JS-based 'style classes'
 		animationDuration: 500,
 		stretch: {
 			top:0,bottom:0,left:0,right:0
+		},
+		variableTopRightButton: {
+			top:5,
+			right:5,
+			height:30,
+			width:tt.os({
+				iphone:60,
+				android:'auto'
+			}),
+			color:'#ffffff',
+			font: {
+				fontSize:12,
+				fontWeight:'bold'
+			},
+			backgroundImage:'images/button_bg_black.png'
+		},
+		topRightButton: {
+			top:5,
+			right:5,
+			height:30,
+			width:38
 		},
 		headerText: {
 			top:8,

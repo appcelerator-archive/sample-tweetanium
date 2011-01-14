@@ -16,6 +16,9 @@
 	<string name="loading">One Moment Please...</string>
 	<string name="just_now">just now</string>
 	<string name="ago">ago</string>
+	<string name="new_tweet">New Tweet</string>
+	<string name="cancel">Cancel</string>
+	<string name="post_tweet">Post Tweet</string>
 	
 	<string name="twitter_error">Twitter Error</string>
 	<string name="twitter_error_general">Twitter is currently experiencing technical difficulties.  Please retry your request later.</string>

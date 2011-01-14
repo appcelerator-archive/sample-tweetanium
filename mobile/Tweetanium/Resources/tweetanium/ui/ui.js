@@ -78,14 +78,15 @@
 	};
 	
 	//create a tweet row from the given data from twitter
-	tt.ui.createTweetRow = function(_tweet) {
+	tt.ui.createTweetRow = function(_tweet,_isDM) {
 		var row = Ti.UI.createTableViewRow(tt.combine($$.TableViewRow, {
 			height:'auto'
 		})),
 		spacing = 6,
 		imgDimensions = 45,
 		nameHeight = 18,
-		metaHeight = 14;
+		metaHeight = 14,
+		retweeted = _tweet.retweeted_status; //should give a 'truthy' or 'falsy' value
 		
 		var avatar = Ti.UI.createImageView(tt.combine($$.avatarView,{
 			top:spacing,
@@ -95,7 +96,7 @@
 			borderRadius:5,
 			image:tt.os({
 				android: 'images/twitteranon.png', //waiting on a fix for remote images in TableView
-				iphone: (_tweet.retweeted_status) ? _tweet.retweeted_status.user.profile_image_url : _tweet.user.profile_image_url
+				iphone: (_tweet.retweeted_status) ? _tweet.retweeted_status.user.profile_image_url : (_isDM) ? _tweet.sender.profile_image_url : _tweet.user.profile_image_url
 			})
 		}));
 		row.add(avatar);
@@ -103,44 +104,35 @@
 		var avatarOffset = spacing*2+imgDimensions;
 		
 		var name = Ti.UI.createLabel(tt.combine($$.boldHeaderText, {
-			text:(_tweet.retweeted_status) ? _tweet.retweeted_status.user.name : _tweet.user.name,
+			text:(_tweet.retweeted_status) ? _tweet.retweeted_status.user.name : (_isDM) ? _tweet.sender.name : _tweet.user.name,
 			top:spacing,
 			left:avatarOffset,
 			height:nameHeight
 		}));
 		row.add(name);
 		
-		var v = Ti.UI.createView({
-			layout:'vertical',
-			top:spacing+nameHeight,
-			left:avatarOffset,
-			right:spacing,
-			height:'auto',
-			bottom:spacing
-		});
-		
-		var tweet = Ti.UI.createLabel(tt.combine($$.Label, {
-			top:0,
-			height:'auto',
-			textAlign:'left',
-			left:0,
-			text: (_tweet.retweeted_status) ? _tweet.retweeted_status.text : _tweet.text
-			//autoLink: (Ti.UI.Android) ? Ti.UI.Android.LINKIFY_ALL : '',
-		}));
-		v.add(tweet);
-		
-		if (_tweet.retweeted_status) {
+		if (retweeted) {
 			metaText = String.format(L('retweeted_by'), _tweet.user.name);
 			var meta = Ti.UI.createLabel(tt.combine($$.smallText, {
 				text:metaText,
-				textAlign:'left',
-				left:0,
-				height:'auto'
+				top:nameHeight+3,
+				left:avatarOffset,
+				right:spacing,
+				height:'auto',
+				textAlign:'left'
 			}));
-			v.add(meta);
+			row.add(meta);
 		}
 		
-		row.add(v);
+		var tweet = Ti.UI.createLabel(tt.combine($$.Label, {
+			text: (retweeted) ? _tweet.retweeted_status.text : _tweet.text,
+			top: (retweeted) ? spacing*3+nameHeight : spacing+nameHeight,
+			left:avatarOffset,
+			right:spacing,
+			height:'auto',
+			textAlign:'left'
+		}));
+		row.add(tweet);
 		
 		var timeAgo = Ti.UI.createLabel(tt.combine($$.smallText, {
 			text:_tweet.timeAgoInWords(),
@@ -180,5 +172,6 @@ Ti.include(
 	'/tweetanium/ui/AddAccountView.js',
 	'/tweetanium/ui/LoadingView.js',
 	'/tweetanium/ui/TweetDetailsView.js',
-	'/tweetanium/ui/AccountDetailsView.js'
+	'/tweetanium/ui/AccountDetailsView.js',
+	'/tweetanium/ui/ComposeWindow.js'
 );
