@@ -3,12 +3,9 @@
 Tweetanium is an example application showcasing a multi-platform approach for building applications
 on the Titanium platform.
 
-## Running Tweetanium Mobile
+## Running Tweetanium
 
-For Tweetanium Mobile, you will need to provide the consumer key and consumer secret values for a Twitter
-application that has been authorized by Twitter for xAuth access to its APIs.  If your application has not
-been "blessed" for xAuth by Twitter, [follow these steps](http://dev.twitter.com/pages/xauth) to request
-access for your application.
+There are sub-directories for each platform; desktop, mobile, and iPad.
 
-Once your app has been prepared for xAuth, copy Resources/tweetanium/config/config.example.js to config.js,
-and provide your oAuth keys.
+IMPORTANT: There are platform specific setup processes (e.g.) xAuth config, etc.  Please refer to the individual 
+README files located under each platform sub-directory for instructions on configuring Tweetanium.
