@@ -68,7 +68,7 @@ var tt = {};
 	*/
 	tt.os = function(/*Object*/ map) {
 		var def = map.def||null; //default function or value
-		if (map[osname]) {
+		if (typeof map[osname] != "undefined") {
 			if (typeof map[osname] == 'function') { return map[osname](); }
 			else { return map[osname]; }
 		}
