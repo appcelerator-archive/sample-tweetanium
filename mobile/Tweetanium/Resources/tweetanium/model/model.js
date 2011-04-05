@@ -76,7 +76,7 @@
 		while (rs.isValidRow()) {
 			var json = rs.fieldByName('json');
 			
-			obj = hydrate(_className,json);
+			var obj = hydrate(_className,json);
 			obj.id = rs.fieldByName('id');
 			
 			results.push(obj);
